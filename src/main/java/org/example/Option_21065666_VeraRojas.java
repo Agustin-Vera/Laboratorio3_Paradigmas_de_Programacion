@@ -10,6 +10,9 @@ public class Option_21065666_VeraRojas {
     private int initialFlowCodeLink;
     private ArrayList<String> keywords;
 
+    public int getCode() {
+        return code;
+    }
 
     public Option_21065666_VeraRojas(int code, String message, int chatbotCodeLink, int initialFlowCodeLink, ArrayList<String> keywords) {
         this.code = code;
@@ -29,4 +32,5 @@ public class Option_21065666_VeraRojas {
                 ", keywords=" + keywords +
                 '}';
     }
+
 }

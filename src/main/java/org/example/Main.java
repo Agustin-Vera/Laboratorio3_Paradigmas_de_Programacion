@@ -18,7 +18,10 @@ public class Main {
         ArrayList<String> keywordOp2F1CB0 = new ArrayList<>(Arrays.asList("estudiar", "aprender", "perfeccionarme"));
         var op2F1CB0 = new Option_21065666_VeraRojas(2, "2) Estudiar", 2, 1, keywordOp2F1CB0);
 
-        System.out.println(op1F1CB0);
-        System.out.println(op2F1CB0);
+        // Flujo 1 - Chatbot 0
+        ArrayList<Option_21065666_VeraRojas> optionsFlow1CB0 = new ArrayList<>(Arrays.asList(op1F1CB0, op2F1CB0));
+        var f1CB0 = new Flow_21065666_VeraRojas(1, "Flujo Principal Chatbot 1\nBienvenido\n¿Que te gustaria hacer?", optionsFlow1CB0);
+
+        System.out.println(f1CB0);
     }
 }
