@@ -56,4 +56,8 @@ public class Flow_21065666_VeraRojas {
                 ", options=" + options +
                 '}';
     }
+
+    public int getId() {
+        return id;
+    }
 }
