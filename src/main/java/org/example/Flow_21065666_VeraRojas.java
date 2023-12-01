@@ -21,6 +21,7 @@ public class Flow_21065666_VeraRojas {
             for(int j = i+1; j < options.size(); j++){
                 if(options.get(i).getCode() == options.get(j).getCode()){
                     options.remove(j);
+                    j--;
                 }
             }
         }

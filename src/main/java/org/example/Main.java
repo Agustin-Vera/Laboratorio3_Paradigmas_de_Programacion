@@ -110,11 +110,11 @@ public class Main {
 
 
         // ######################### System #####################################
-        /*
+
         // Chatbots - System
         ArrayList<Chatbot_21065666_VeraRojas> chatbotsSystem = new ArrayList<>(Arrays.asList(cb0, cb1, cb2, cb2, cb2, cb1));
-        var sys = new Sys("Chatbots Paradigmas", 0, chatbotsSystem);
-
+        var sys = new System_21065666_VeraRojas("Chatbots Paradigmas", 0, chatbotsSystem);
+        /*
         // Users
         User user1 = new AdminUser("Messi");
         sys.systemAddUser(user1);
@@ -123,6 +123,6 @@ public class Main {
         sys.systemAddUser(user2);
 
          */
-        System.out.println(cb2);
+        System.out.println(sys);
     }
 }

@@ -7,6 +7,11 @@ public class Chatbot_21065666_VeraRojas {
     private int id;
     private String name;
     private String welcomeMessage;
+
+    public int getStartFlowID() {
+        return startFlowID;
+    }
+
     private int startFlowID;
     private ArrayList<Flow_21065666_VeraRojas> flows;
 
@@ -60,5 +65,9 @@ public class Chatbot_21065666_VeraRojas {
                 ", startFlowID=" + startFlowID +
                 ", flows=" + flows +
                 '}';
+    }
+
+    public int getId() {
+        return id;
     }
 }
