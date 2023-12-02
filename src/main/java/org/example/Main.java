@@ -123,6 +123,7 @@ public class Main {
         sys.systemAddUser(user2);
 
          */
+        sys.systemAddChatbot(cb1);
         System.out.println(sys);
     }
 }

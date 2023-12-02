@@ -51,6 +51,24 @@ public class System_21065666_VeraRojas {
         return null;
     }
 
+    // RF 8
+    public void systemAddChatbot(Chatbot_21065666_VeraRojas chatbot){
+        if(this.chatbotExist(chatbot)){
+            System.out.println("Ya existe un chatbot con ese identificador dentro del sistema, pruebe con otro.");
+        }
+        this.chatbots.add(chatbot);
+        System.out.println("Chatbot " + chatbot.getId() + " fue agregado con exito.");
+    }
+
+    // Verifica si un chatbot existe en el system
+    public boolean chatbotExist(Chatbot_21065666_VeraRojas newChatbot){
+        for(Chatbot_21065666_VeraRojas chatbot: this.chatbots){
+            if(chatbot.getId() == newChatbot.getId()){
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public String toString() {
