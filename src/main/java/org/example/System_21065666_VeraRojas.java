@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Date;
+import UserInterface_21065666_VeraRojas.*;
 
 public class System_21065666_VeraRojas {
 
@@ -64,6 +65,27 @@ public class System_21065666_VeraRojas {
     public boolean chatbotExist(Chatbot_21065666_VeraRojas newChatbot){
         for(Chatbot_21065666_VeraRojas chatbot: this.chatbots){
             if(chatbot.getId() == newChatbot.getId()){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // RF 9
+    public void systemAddUser(UserInterface_21065666_VeraRojas user){
+        if(this.userExist(user)){
+            System.out.println("Ya existe un usuario con el mismo nombre dentro del sistema, pruebe con otro.");
+        }
+        else {
+            this.users.add(user);
+            this.chathistorys.add(new Chathistory(user.getName()));
+            System.out.println("Usuario '" + user.getName() + "' fue agregado con exito.");
+        }
+    }
+
+    public boolean userExist(User newUser){
+        for(User user: this.users){
+            if(user.getName().equals(newUser.getName())) {
                 return true;
             }
         }
