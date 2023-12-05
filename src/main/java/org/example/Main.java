@@ -1,5 +1,7 @@
 package org.example;
 
+import UserInterface_21065666_VeraRojas.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -114,16 +116,16 @@ public class Main {
         // Chatbots - System
         ArrayList<Chatbot_21065666_VeraRojas> chatbotsSystem = new ArrayList<>(Arrays.asList(cb0, cb1, cb2, cb2, cb2, cb1));
         var sys = new System_21065666_VeraRojas("Chatbots Paradigmas", 0, chatbotsSystem);
-        /*
+
         // Users
-        User user1 = new AdminUser("Messi");
+        UserInterface_21065666_VeraRojas user1 = new AdminUser_21065666_VeraRojas("Messi");
         sys.systemAddUser(user1);
 
-        User user2 = new NormalUser("Mora");
+        UserInterface_21065666_VeraRojas user2 = new NormalUser_21065666_VeraRojas("Mora");
         sys.systemAddUser(user2);
 
-         */
-        sys.systemAddChatbot(cb1);
+
+        //sys.systemAddChatbot(cb1);
         System.out.println(sys);
     }
 }

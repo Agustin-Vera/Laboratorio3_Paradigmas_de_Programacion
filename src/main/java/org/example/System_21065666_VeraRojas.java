@@ -9,9 +9,9 @@ public class System_21065666_VeraRojas {
     private String name;
     private int initialChatbotCodeLink;
     private ArrayList<Chatbot_21065666_VeraRojas> chatbots;
-    //private ArrayList<User> users;
+    private ArrayList<UserInterface_21065666_VeraRojas> users;
     private String currentUser;
-    //private ArrayList<Chathistory> chathistorys;
+    private ArrayList<Chathistory_21065666_VeraRojas> chathistorys;
     private int currentChatbotID;
     private int currentFlowID;
     private Date date;
@@ -22,9 +22,9 @@ public class System_21065666_VeraRojas {
         this.name = name;
         this.initialChatbotCodeLink = initialChatbotCodeLink;
         this.chatbots = getUniqueChatbots(chatbots);
-        //this.users = new ArrayList<User>();
+        this.users = new ArrayList<UserInterface_21065666_VeraRojas>();
         this.currentUser = null;
-        //this.chathistorys = new ArrayList<Chathistory>();
+        this.chathistorys = new ArrayList<Chathistory_21065666_VeraRojas>();
         this.currentChatbotID = initialChatbotCodeLink;
         this.currentFlowID = getChatbotByID(initialChatbotCodeLink).getStartFlowID();;
         this.date = new Date();
@@ -78,13 +78,13 @@ public class System_21065666_VeraRojas {
         }
         else {
             this.users.add(user);
-            this.chathistorys.add(new Chathistory(user.getName()));
+            this.chathistorys.add(new Chathistory_21065666_VeraRojas(user.getName()));
             System.out.println("Usuario '" + user.getName() + "' fue agregado con exito.");
         }
     }
 
-    public boolean userExist(User newUser){
-        for(User user: this.users){
+    public boolean userExist(UserInterface_21065666_VeraRojas newUser){
+        for(UserInterface_21065666_VeraRojas user: this.users){
             if(user.getName().equals(newUser.getName())) {
                 return true;
             }
@@ -98,7 +98,9 @@ public class System_21065666_VeraRojas {
                 "name='" + name + '\'' +
                 ", initialChatbotCodeLink=" + initialChatbotCodeLink +
                 ", chatbots=" + chatbots +
+                ", users=" + users +
                 ", currentUser='" + currentUser + '\'' +
+                ", chathistorys=" + chathistorys +
                 ", currentChatbotID=" + currentChatbotID +
                 ", currentFlowID=" + currentFlowID +
                 ", date=" + date +

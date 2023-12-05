@@ -18,4 +18,11 @@ public class AdminUser_21065666_VeraRojas implements UserInterface_21065666_Vera
         return adminUser;
     }
 
+    @Override
+    public String toString() {
+        return "AdminUser_21065666_VeraRojas{" +
+                "name='" + name + '\'' +
+                ", adminUser=" + adminUser +
+                '}';
+    }
 }

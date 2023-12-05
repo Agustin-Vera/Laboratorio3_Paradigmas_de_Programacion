@@ -18,4 +18,12 @@ public class NormalUser_21065666_VeraRojas implements UserInterface_21065666_Ver
     public boolean isAdminUser() {
         return adminUser;
     }
+
+    @Override
+    public String toString() {
+        return "NormalUser_21065666_VeraRojas{" +
+                "name='" + name + '\'' +
+                ", adminUser=" + adminUser +
+                '}';
+    }
 }
