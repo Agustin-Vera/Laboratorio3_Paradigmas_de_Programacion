@@ -83,6 +83,33 @@ public class System_21065666_VeraRojas {
         }
     }
 
+    // RF 10
+    public void systemLogin(String username){
+        if(!usersLogged() && userExistByName(username)){
+            this.currentUser = username;
+            System.out.println("El usuario " + username + " inicio sesion de manera correcta.");
+        }
+        else {
+            System.out.println("No se pudo iniciar la sesión del usuario, porfavor pruebe con un usuario existente o cierre la sesión iniciada.");
+        }
+    }
+
+    public boolean usersLogged(){
+        if (this.currentUser == null){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean userExistByName(String username){
+        for(UserInterface_21065666_VeraRojas user: this.users){
+            if(user.getName().equals(username)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean userExist(UserInterface_21065666_VeraRojas newUser){
         for(UserInterface_21065666_VeraRojas user: this.users){
             if(user.getName().equals(newUser.getName())) {
