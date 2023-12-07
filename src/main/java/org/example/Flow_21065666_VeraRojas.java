@@ -8,6 +8,14 @@ public class Flow_21065666_VeraRojas {
     private String nameMsg;
     private ArrayList<Option_21065666_VeraRojas> options;
 
+    public int getId() {
+        return id;
+    }
+
+    public String getNameMsg() {
+        return nameMsg;
+    }
+
     // ########### RF2 - TDA Flow - Constructor ################
     public Flow_21065666_VeraRojas(int id, String nameMsg, ArrayList<Option_21065666_VeraRojas> options) {
             this.id = id;
@@ -49,6 +57,33 @@ public class Flow_21065666_VeraRojas {
         }
     }
 
+    public Option_21065666_VeraRojas getOptionByMessage(String message){
+        for(Option_21065666_VeraRojas option: this.options){
+            ArrayList<String> keywords = option.getKeywords();
+            if(keywords.contains(message)){
+                return option;
+            }
+        }
+        return null;
+    }
+
+    public boolean optionExist(String message){
+        for(Option_21065666_VeraRojas option: this.options){
+            if(option.getKeywords().contains(message)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String optionsToString(){
+        String optionsString = "";
+        for(Option_21065666_VeraRojas option: this.options){
+            optionsString = optionsString + option.getMessage() + "\n";
+        }
+        return optionsString;
+    }
+
     @Override
     public String toString() {
         return "Flow_21065666_VeraRojas{" +
@@ -58,7 +93,4 @@ public class Flow_21065666_VeraRojas {
                 '}';
     }
 
-    public int getId() {
-        return id;
-    }
 }

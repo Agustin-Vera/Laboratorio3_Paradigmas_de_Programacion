@@ -126,6 +126,55 @@ public class System_21065666_VeraRojas {
         this.currentUser = null;
     }
 
+    // RF 12
+
+    public void systemTalk(String message){
+        if(usersLogged()){
+            Chatbot_21065666_VeraRojas chatbotInicio = getChatbotByID(this.currentChatbotID);
+            Flow_21065666_VeraRojas flowInicio = chatbotInicio.getFlowByID(this.currentFlowID);
+            if(flowInicio.optionExist(message)){
+                Option_21065666_VeraRojas option = flowInicio.getOptionByMessage(message);
+                int chatbotCodeLink = option.getChatbotCodeLink();
+                int flowCodeLink = option.getInitialFlowCodeLink();
+                Chatbot_21065666_VeraRojas chatbotDestino = getChatbotByID(chatbotCodeLink);
+                Flow_21065666_VeraRojas flowDestino = chatbotDestino.getFlowByID(flowCodeLink);
+                String interaction = makeInteraction(this.currentUser, message, chatbotDestino, flowDestino);
+                addInteractionToChathistory(this.currentUser, interaction);
+                this.setCurrentChatbotID(chatbotDestino.getId());
+                this.setCurrentFlowID(flowDestino.getId());
+            }
+            else{
+                String interaction = makeInteraction(this.currentUser, message, chatbotInicio, flowInicio);
+                addInteractionToChathistory(this.currentUser, interaction);
+            }
+        }
+        else{
+            System.out.println("Inicia sesión con un usuario para interactuar con un chatbot.");
+        }
+    }
+
+    public String makeInteraction(String username, String message, Chatbot_21065666_VeraRojas chatbotDestino, Flow_21065666_VeraRojas flowDestino){
+        String interaction = new Date() + " - " + username + ": " + message + "\n" + new Date() + " - " + chatbotDestino.getName() + ": " + flowDestino.getNameMsg() + "\n" + flowDestino.optionsToString() + "\n";
+        System.out.println(chatbotDestino.getName() + ": " + flowDestino.getNameMsg() + "\n" + flowDestino.optionsToString());
+        return interaction;
+    }
+
+    public void addInteractionToChathistory(String username, String interaction){
+        for(Chathistory_21065666_VeraRojas chathistory: this.chathistorys){
+            if(chathistory.getUsername().equals(username)){
+                chathistory.setHistory(interaction);
+            }
+        }
+    }
+
+    public void setCurrentChatbotID(int currentChatbotID) {
+        this.currentChatbotID = currentChatbotID;
+    }
+
+    public void setCurrentFlowID(int currentFlowID) {
+        this.currentFlowID = currentFlowID;
+    }
+
     @Override
     public String toString() {
         return "System_21065666_VeraRojas{" +

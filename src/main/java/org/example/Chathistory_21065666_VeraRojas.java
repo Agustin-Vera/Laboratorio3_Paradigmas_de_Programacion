@@ -5,6 +5,13 @@ public class Chathistory_21065666_VeraRojas {
     private String username;
     private String history;
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getHistory() {
+        return history;
+    }
 
     public Chathistory_21065666_VeraRojas(String username) {
         this.username = username;

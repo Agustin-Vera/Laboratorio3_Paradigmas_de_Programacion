@@ -127,9 +127,9 @@ public class Main {
 
         //sys.systemAddChatbot(cb1);
         sys.systemLogin("Messi");
-        System.out.println(sys);
+        //System.out.println(sys);
 
-        sys.systemLogout();
+        sys.systemTalk("hola");
         System.out.println(sys);
     }
 }

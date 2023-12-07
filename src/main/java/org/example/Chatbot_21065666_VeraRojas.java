@@ -12,6 +12,14 @@ public class Chatbot_21065666_VeraRojas {
         return startFlowID;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     private int startFlowID;
     private ArrayList<Flow_21065666_VeraRojas> flows;
 
@@ -56,6 +64,15 @@ public class Chatbot_21065666_VeraRojas {
         return false;
     }
 
+    public Flow_21065666_VeraRojas getFlowByID(int id){
+        for(Flow_21065666_VeraRojas flow: this.flows){
+            if(flow.getId() == id){
+                return flow;
+            }
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         return "Chatbot_21065666_VeraRojas{" +
@@ -67,7 +84,5 @@ public class Chatbot_21065666_VeraRojas {
                 '}';
     }
 
-    public int getId() {
-        return id;
-    }
+
 }
