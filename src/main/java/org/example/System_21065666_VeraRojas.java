@@ -119,6 +119,13 @@ public class System_21065666_VeraRojas {
         return false;
     }
 
+    // RF 11
+    public void systemLogout(){
+        this.currentChatbotID = initialChatbotCodeLink;
+        this.currentFlowID = getChatbotByID(initialChatbotCodeLink).getId();
+        this.currentUser = null;
+    }
+
     @Override
     public String toString() {
         return "System_21065666_VeraRojas{" +
