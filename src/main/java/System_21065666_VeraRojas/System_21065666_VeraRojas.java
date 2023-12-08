@@ -1,10 +1,15 @@
-package org.example;
+package System_21065666_VeraRojas;
 
 import java.util.ArrayList;
 import java.util.Date;
-import UserInterface_21065666_VeraRojas.*;
 
-public class System_21065666_VeraRojas {
+import ChatHistory_21065666_VeraRojas.Chathistory_21065666_VeraRojas;
+import Chatbot_21065666_VeraRojas.Chatbot_21065666_VeraRojas;
+import Flow_21065666_VeraRojas.Flow_21065666_VeraRojas;
+import Option_21065666_VeraRojas.Option_21065666_VeraRojas;
+import User_21065666_VeraRojas.*;
+
+public class System_21065666_VeraRojas implements SystemInterface_21065666_VeraRojas{
 
     private String name;
     private int initialChatbotCodeLink;
@@ -35,7 +40,6 @@ public class System_21065666_VeraRojas {
             for(int j = i+1; j < chatbots.size(); j++){
                 if(chatbots.get(i).getId() == chatbots.get(j).getId()){
                     chatbots.remove(j);
-                    System.out.println("Mismo ID");
                     j--;
                 }
             }
@@ -132,7 +136,7 @@ public class System_21065666_VeraRojas {
         if(usersLogged()){
             Chatbot_21065666_VeraRojas chatbotInicio = getChatbotByID(this.currentChatbotID);
             Flow_21065666_VeraRojas flowInicio = chatbotInicio.getFlowByID(this.currentFlowID);
-            if(flowInicio.optionExist(message)){
+            if(flowInicio.optionExistByMessage(message)){
                 Option_21065666_VeraRojas option = flowInicio.getOptionByMessage(message);
                 int chatbotCodeLink = option.getChatbotCodeLink();
                 int flowCodeLink = option.getInitialFlowCodeLink();
@@ -167,6 +171,16 @@ public class System_21065666_VeraRojas {
         }
     }
 
+    public void systemSynthesis(String username){
+        if(userExistByName(username)){
+            for(Chathistory_21065666_VeraRojas chathistory: this.chathistorys){
+                if(chathistory.getUsername().equals(username)){
+                    System.out.println(chathistory.getHistory());
+                }
+            }
+        }
+    }
+
     public void setCurrentChatbotID(int currentChatbotID) {
         this.currentChatbotID = currentChatbotID;
     }
@@ -174,6 +188,83 @@ public class System_21065666_VeraRojas {
     public void setCurrentFlowID(int currentFlowID) {
         this.currentFlowID = currentFlowID;
     }
+
+    public void printUsers() {
+        for(UserInterface_21065666_VeraRojas user: this.users){
+            System.out.println(user.getName());
+        }
+        System.out.println("");
+    }
+
+    public UserInterface_21065666_VeraRojas getUserLogged() {
+        for(UserInterface_21065666_VeraRojas user: this.users){
+            if(user.getName().equals(this.currentUser)){
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public boolean userIsAdminUser(String username){
+        for(UserInterface_21065666_VeraRojas user: this.users){
+            if(user.getName().equals(username) && user.isAdminUser() == true){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public boolean chatbotExistByID(int id) {
+        for(Chatbot_21065666_VeraRojas chatbot: this.chatbots) {
+            if(chatbot.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean flowExistByFlowID(int chatbotID, int flowID) {
+        Chatbot_21065666_VeraRojas chatbot = getChatbotByID(chatbotID);
+        return chatbot.flowExistByID(flowID);
+    }
+
+    public void addFlowToChatbotByChatbotID(int chatbotID, Flow_21065666_VeraRojas flow) {
+        for(Chatbot_21065666_VeraRojas chatbot: this.chatbots) {
+            if(chatbot.getId() == chatbotID) {
+                chatbot.chatbotAddFlow(flow);
+            }
+        }
+    }
+
+    public void addOptionToFlowByChatbotFlowIDs(int chatbotID, int flowID, Option_21065666_VeraRojas option) {
+        for(Chatbot_21065666_VeraRojas chatbot: this.chatbots) {
+            if (chatbot.getId() == chatbotID) {
+                chatbot.addOptionToFlowByFlowID(flowID, option);
+            }
+        }
+    }
+
+
+
+    public void printChatbots() {
+        for(Chatbot_21065666_VeraRojas chatbot: this.chatbots){
+            System.out.println(chatbot.getId() + ". " + chatbot.getName());
+        }
+    }
+
+    public void printChatbotsFlowsOptions() {
+        for(Chatbot_21065666_VeraRojas chatbot: this.chatbots){
+            System.out.println(chatbot.getId() + ". " + chatbot.getName());
+            chatbot.printFlows();
+        }
+    }
+    public void printChatbotFlowNames(int chatbotID) {
+        Chatbot_21065666_VeraRojas chatbot = getChatbotByID(chatbotID);
+        chatbot.printFlowNames();
+    }
+
+
 
     @Override
     public String toString() {

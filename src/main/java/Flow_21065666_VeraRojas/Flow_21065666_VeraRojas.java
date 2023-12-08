@@ -1,8 +1,10 @@
-package org.example;
+package Flow_21065666_VeraRojas;
+
+import Option_21065666_VeraRojas.Option_21065666_VeraRojas;
 
 import java.util.ArrayList;
 
-public class Flow_21065666_VeraRojas {
+public class Flow_21065666_VeraRojas implements FlowInterface_21065666_VeraRojas{
 
     private int id;
     private String nameMsg;
@@ -67,7 +69,7 @@ public class Flow_21065666_VeraRojas {
         return null;
     }
 
-    public boolean optionExist(String message){
+    public boolean optionExistByMessage(String message){
         for(Option_21065666_VeraRojas option: this.options){
             if(option.getKeywords().contains(message)){
                 return true;
@@ -82,6 +84,12 @@ public class Flow_21065666_VeraRojas {
             optionsString = optionsString + option.getMessage() + "\n";
         }
         return optionsString;
+    }
+
+    public void printOptions() {
+        for(Option_21065666_VeraRojas option: this.options){
+            System.out.println("        " + option.getCode() + ". " + option.getMessage());
+        }
     }
 
     @Override

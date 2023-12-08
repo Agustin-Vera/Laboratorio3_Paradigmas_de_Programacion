@@ -1,4 +1,4 @@
-package org.example;
+package ChatHistory_21065666_VeraRojas;
 
 public class Chathistory_21065666_VeraRojas {
 

@@ -1,8 +1,11 @@
-package org.example;
+package Chatbot_21065666_VeraRojas;
+
+import Flow_21065666_VeraRojas.Flow_21065666_VeraRojas;
+import Option_21065666_VeraRojas.Option_21065666_VeraRojas;
 
 import java.util.ArrayList;
 
-public class Chatbot_21065666_VeraRojas {
+public class Chatbot_21065666_VeraRojas implements ChatbotInterface_21065666_VeraRojas{
 
     private int id;
     private String name;
@@ -46,7 +49,7 @@ public class Chatbot_21065666_VeraRojas {
     }
 
     // ########### RF5 - TDA Chatbot - Modificador ################
-    private void chatbotAddFlow(Flow_21065666_VeraRojas flow){
+    public void chatbotAddFlow(Flow_21065666_VeraRojas flow){
         if(this.flowExist(flow)){
             System.out.println("Ya existe un flujo con ese identificador dentro del chatbot, pruebe con otro.");
         }
@@ -72,6 +75,37 @@ public class Chatbot_21065666_VeraRojas {
         }
         return null;
     }
+
+    public boolean flowExistByID(int flowID) {
+        for(Flow_21065666_VeraRojas flow: this.flows) {
+            if(flow.getId() == flowID) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void addOptionToFlowByFlowID(int flowID, Option_21065666_VeraRojas option) {
+        for (Flow_21065666_VeraRojas flow : this.flows) {
+            if (flow.getId() == flowID) {
+                flow.flowAddOption(option);
+            }
+        }
+    }
+
+    public void printFlows() {
+        for(Flow_21065666_VeraRojas flow: this.flows){
+            System.out.println("    " + flow.getId() + ". " + flow.getNameMsg());
+            flow.printOptions();
+        }
+    }
+
+    public void printFlowNames() {
+        for(Flow_21065666_VeraRojas flow: this.flows){
+            System.out.println(flow.getId() + ". " + flow.getNameMsg());
+        }
+    }
+
 
     @Override
     public String toString() {
