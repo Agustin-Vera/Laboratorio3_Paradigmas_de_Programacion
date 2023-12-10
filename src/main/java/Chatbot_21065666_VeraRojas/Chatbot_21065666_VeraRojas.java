@@ -5,29 +5,47 @@ import Option_21065666_VeraRojas.Option_21065666_VeraRojas;
 
 import java.util.ArrayList;
 
+/**
+ * Clase Chatbot
+ * @author Agustin Vera
+ */
 public class Chatbot_21065666_VeraRojas implements ChatbotInterface_21065666_VeraRojas{
 
+    /**
+     * Identificador del Chatbot
+     */
     private int id;
+
+    /**
+     * Nombre del Chatbot
+     */
     private String name;
+
+    /**
+     * Mensaje de bienvenida del Chatbot
+     */
     private String welcomeMessage;
 
-    public int getStartFlowID() {
-        return startFlowID;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
+    /**
+     * Identificador del Flow inicial
+     */
     private int startFlowID;
+
+    /**
+     * Los Flows del Chatbot
+     */
     private ArrayList<Flow_21065666_VeraRojas> flows;
 
-
     // ########### RF4 - TDA Chatbot - Constructor ################
+
+    /**
+     * Instancia un Chatbot
+     * @param id El identificador del Chatbot
+     * @param name El nombre del Chatbot
+     * @param welcomeMessage El mensaje de bienvenida del Chatbot
+     * @param startFlowID El identificador del Flow inicial del Chatbot
+     * @param flows Los Flows del Chatbot
+     */
     public Chatbot_21065666_VeraRojas(int id, String name, String welcomeMessage, int startFlowID, ArrayList<Flow_21065666_VeraRojas> flows) {
         this.id = id;
         this.name = name;
@@ -36,6 +54,35 @@ public class Chatbot_21065666_VeraRojas implements ChatbotInterface_21065666_Ver
         this.flows = getUniqueFlows(flows);
     }
 
+    /**
+     * Obtiene el Identificador del Flow inicial
+     * @return Devuelve el identificador del Flow inicial
+     */
+    public int getStartFlowID() {
+        return startFlowID;
+    }
+
+    /**
+     * Obtiene el identificador del Chatbot
+     * @return Devuelve el identificador del Chatbot
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Obtiene el nombre del Chatbot
+     * @return Devuelve el nombre del Chatbot
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Obtiene las primeras instancias de los Flows
+     * @param flows Lista de Flows
+     * @return Devuelve la lista con las primeras instancias de los Flows
+     */
     public ArrayList<Flow_21065666_VeraRojas> getUniqueFlows(ArrayList<Flow_21065666_VeraRojas> flows){
         for(int i = 0; i < flows.size(); i++){
             for(int j = i+1; j < flows.size(); j++){
@@ -48,7 +95,10 @@ public class Chatbot_21065666_VeraRojas implements ChatbotInterface_21065666_Ver
         return flows;
     }
 
-    // ########### RF5 - TDA Chatbot - Modificador ################
+    /**
+     * Agrega un Flow a un Chatbot
+     * @param flow Flow a ser agregado
+     */
     public void chatbotAddFlow(Flow_21065666_VeraRojas flow){
         if(this.flowExist(flow)){
             System.out.println("Ya existe un flujo con ese identificador dentro del chatbot, pruebe con otro.");
@@ -57,7 +107,12 @@ public class Chatbot_21065666_VeraRojas implements ChatbotInterface_21065666_Ver
         System.out.println("Flujo " + flow.getId() + " fue agregado con exito.");
     }
 
-    // Verifica si un flow existe en el chatbot
+
+    /**
+     * Verifica si un Flow existe en el chatbot
+     * @param newFlow Flow a ser verificado
+     * @return El booleano representador de la existencia del Flow
+     */
     public boolean flowExist(Flow_21065666_VeraRojas newFlow){
         for(Flow_21065666_VeraRojas flow: this.flows){
             if(flow.getId() == newFlow.getId()){
@@ -67,6 +122,11 @@ public class Chatbot_21065666_VeraRojas implements ChatbotInterface_21065666_Ver
         return false;
     }
 
+    /**
+     * Obtiene un Flow dado un identificador
+     * @param id El identificador del Flow a ser buscado
+     * @return Devuelve el Flow con el id respectivo
+     */
     public Flow_21065666_VeraRojas getFlowByID(int id){
         for(Flow_21065666_VeraRojas flow: this.flows){
             if(flow.getId() == id){
@@ -76,6 +136,11 @@ public class Chatbot_21065666_VeraRojas implements ChatbotInterface_21065666_Ver
         return null;
     }
 
+    /**
+     * Verifica si un Flow existe dado su identificador
+     * @param flowID El identificador del Flow a verificar
+     * @return El booleano representador de la existencia del Flow
+     */
     public boolean flowExistByID(int flowID) {
         for(Flow_21065666_VeraRojas flow: this.flows) {
             if(flow.getId() == flowID) {
@@ -85,6 +150,11 @@ public class Chatbot_21065666_VeraRojas implements ChatbotInterface_21065666_Ver
         return false;
     }
 
+    /**
+     * Agrega una Option a un Flow
+     * @param flowID El identificador del Flow
+     * @param option La Option a ser agregada
+     */
     public void addOptionToFlowByFlowID(int flowID, Option_21065666_VeraRojas option) {
         for (Flow_21065666_VeraRojas flow : this.flows) {
             if (flow.getId() == flowID) {
@@ -93,6 +163,9 @@ public class Chatbot_21065666_VeraRojas implements ChatbotInterface_21065666_Ver
         }
     }
 
+    /**
+     * Imprime los Flows del Chatbot
+     */
     public void printFlows() {
         for(Flow_21065666_VeraRojas flow: this.flows){
             System.out.println("    " + flow.getId() + ". " + flow.getNameMsg());
@@ -100,12 +173,14 @@ public class Chatbot_21065666_VeraRojas implements ChatbotInterface_21065666_Ver
         }
     }
 
+    /**
+     * Imprime los nombre de los Flows del Chatbot
+     */
     public void printFlowNames() {
         for(Flow_21065666_VeraRojas flow: this.flows){
             System.out.println(flow.getId() + ". " + flow.getNameMsg());
         }
     }
-
 
     @Override
     public String toString() {
@@ -117,6 +192,4 @@ public class Chatbot_21065666_VeraRojas implements ChatbotInterface_21065666_Ver
                 ", flows=" + flows +
                 '}';
     }
-
-
 }

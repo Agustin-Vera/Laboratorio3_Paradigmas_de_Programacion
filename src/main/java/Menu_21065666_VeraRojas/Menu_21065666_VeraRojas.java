@@ -12,21 +12,28 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Clase Menu
+ * @author Agustin Vera
+ */
 public class Menu_21065666_VeraRojas {
+
+    /**
+     * Permite a un usuario interactuar con un sistema creado para facilitar la revision e interaccion
+     */
     public void start(){
         Scanner input = new Scanner(System.in);
         final int MENU_EXIT_OPTION = 3;
 
         System_21065666_VeraRojas sys = makeSystemWithContent();
+        System.out.println("Para una revision y interaccion mas optima se crea un sistema de chatbots.");
+        System.out.println("El sistema creado es el mismo creado para los scripts de pruebas de laboratorios anteriores.\n\n");
 
         int opcionInicio, opcionLoginUsuario, opcionRegistroUsuario, opcionMenuUsuarioNormal, opcionMenuUsuarioAdministrador;
         String optionOrMessage;
         String username;
         UserInterface_21065666_VeraRojas user;
         Chatbot_21065666_VeraRojas chatbot;
-
-        int chatbotID;
-
 
         do {
             menuInicio();
@@ -127,7 +134,7 @@ public class Menu_21065666_VeraRojas {
 
                                         case 5: // 5. Salir
                                             sys.systemLogout();
-                                            System.out.println("Cerrando sesion, ha salido del menú de Usuario.");
+                                            System.out.println("\nCerrando sesion, ha salido del menú de Usuario.");
                                             break;
 
                                         default:
@@ -173,7 +180,7 @@ public class Menu_21065666_VeraRojas {
                     break;
 
                 case 3: // 3. Salir
-                    System.out.println("Finalizando el programa, tenga un buen dia :).");
+                    System.out.println("\nFinalizando el programa, tenga un buen dia :).");
                     System.exit(0);
                     break;
                 default:
@@ -183,6 +190,9 @@ public class Menu_21065666_VeraRojas {
         } while (opcionInicio != MENU_EXIT_OPTION);
     }
 
+    /**
+     * Imprime el menu de inicio
+     */
     private void menuInicio() {
         System.out.println("\n\n### Sistema de Chatbots - Inicio ###\n");
         System.out.print("1. Login de Usuario.\n");
@@ -191,6 +201,9 @@ public class Menu_21065666_VeraRojas {
         System.out.print("\nINTRODUZCA SU OPCION: ");
     }
 
+    /**
+     * Imprime el menu de registro de usuario
+     */
     private void menuRegistroUsuario() {
         System.out.println("\n\n### Sistema de Chatbots - Registro ###\n");
         System.out.println("1. Registrar usuario normal.");
@@ -199,6 +212,10 @@ public class Menu_21065666_VeraRojas {
         System.out.print("\nINTRODUZCA SU OPCION: ");
     }
 
+    /**
+     * Imprime el menu de usuario administrador
+     * @param username Nombre del usuario
+     */
     private void menuUsuarioAdministrador(String username) {
         System.out.println("\n\n### Sistema de Chatbots - Usuario administrador ###");
         System.out.println("Bienvenido " + username + " usted es administrador.\n");
@@ -213,6 +230,10 @@ public class Menu_21065666_VeraRojas {
 
     }
 
+    /**
+     * Imprime el menu del usuario normal
+     * @param username Nombre del usuario
+     */
     private void menuUsuarioNormal(String username) {
         System.out.println("\n\n### Sistema de Chatbots - Usuario ###");
         System.out.println("Bienvenido " + username +  ".\n");
@@ -224,6 +245,11 @@ public class Menu_21065666_VeraRojas {
         System.out.print("\nINTRODUZCA SU OPCION: ");
     }
 
+    /**
+     * Permite al User pedir los necesario para crear una Option
+     * @param user User que creara la Option
+     * @return Option creada por el User
+     */
     private Option_21065666_VeraRojas makeNewOption(UserInterface_21065666_VeraRojas user) {
         int optionCode, optionChatbotCodeLink, optionInitialFlowCodeLink;
         String optionMessage, optionKeyword;
@@ -254,6 +280,11 @@ public class Menu_21065666_VeraRojas {
         return user.makeOption(optionCode, optionMessage, optionChatbotCodeLink, optionInitialFlowCodeLink, optionKeywords);
     }
 
+    /**
+     * Permite al User pedir lo necesario para crear un Flow
+     * @param user User que creara el Flow
+     * @return Flow creado por el User
+     */
     private Flow_21065666_VeraRojas makeNewFlow(UserInterface_21065666_VeraRojas user) {
         int flowID;
         String flowNameMsg;
@@ -277,6 +308,11 @@ public class Menu_21065666_VeraRojas {
         return user.makeFlow(flowID, flowNameMsg, flowOptions);
     }
 
+    /**
+     * Permite al User pedir lo necesario para crear un Chatbot
+     * @param user User que creara el Chatbot
+     * @return Chatbot creado por el User
+     */
     private Chatbot_21065666_VeraRojas makeNewChatbot(UserInterface_21065666_VeraRojas user){
         int chatbotID, chatbotStartFlowID;
         String chatbotName, chatbotWelcomeMessage;
@@ -304,6 +340,11 @@ public class Menu_21065666_VeraRojas {
         return user.makeChatbot(chatbotID, chatbotName, chatbotWelcomeMessage, chatbotStartFlowID, chatbotFlows);
     }
 
+    /**
+     * Permite al User pedir lo necesario para modificar un Chatbot
+     * @param sys System contenedor del Chatbot
+     * @param user User que modificara el Chatbot
+     */
     public void modificarChatbot(System_21065666_VeraRojas sys, UserInterface_21065666_VeraRojas user){
         Scanner input = new Scanner(System.in);
         int chatbotID, flowID, tipoModificacionChatbot;
@@ -353,6 +394,10 @@ public class Menu_21065666_VeraRojas {
 
     }
 
+    /**
+     * Crea un System con contenido
+     * @return Devuelve un System con contenido dentro de si
+     */
     private System_21065666_VeraRojas makeSystemWithContent() {
 
         // ######################### Chatbot 0 #####################################
