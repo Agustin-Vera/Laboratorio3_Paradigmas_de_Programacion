@@ -168,7 +168,7 @@ public class Chatbot_21065666_VeraRojas implements ChatbotInterface_21065666_Ver
      */
     public void printFlows() {
         for(Flow_21065666_VeraRojas flow: this.flows){
-            System.out.println("    " + flow.getId() + ". " + flow.getNameMsg());
+            System.out.println("    " + "Flow: " + flow.getId() + ". " + flow.getNameMsg());
             flow.printOptions();
         }
     }

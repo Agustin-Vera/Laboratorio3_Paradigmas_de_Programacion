@@ -91,7 +91,6 @@ public class Flow_21065666_VeraRojas implements FlowInterface_21065666_VeraRojas
     public void flowAddOption(Option_21065666_VeraRojas option){
         if(this.optionExist(option)){
             System.out.println("Ya existe una opcion con ese identificador, pruebe con otra.");
-            //return;
         }else {
             this.options.add(option);
             System.out.println("Opcion " + option.getCode() + " fue agregada con exito.");
@@ -144,7 +143,7 @@ public class Flow_21065666_VeraRojas implements FlowInterface_21065666_VeraRojas
      */
     public void printOptions() {
         for(Option_21065666_VeraRojas option: this.options){
-            System.out.println("        " + option.getCode() + ". " + option.getMessage());
+            System.out.println("        Option: Code = " + option.getCode() + "   Message = " + option.getMessage() + "  chatbotCodeLink = " + option.getChatbotCodeLink() + "   InitialFlowCodeLink = " + option.getInitialFlowCodeLink() + "   Keywords = " + option.getKeywords());
         }
     }
 

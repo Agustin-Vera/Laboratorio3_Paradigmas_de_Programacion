@@ -31,7 +31,7 @@ public interface UserInterface_21065666_VeraRojas {
      * @param message Mensaje del AdminUser
      */
     void talkToChatbot(System_21065666_VeraRojas sys, String message);
-    
+
     /**
      * Permite ver todos los Chatbots del System
      * @param sys System contenedor de Chatbots

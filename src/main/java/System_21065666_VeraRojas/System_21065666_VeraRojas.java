@@ -273,12 +273,13 @@ public class System_21065666_VeraRojas implements SystemInterface_21065666_VeraR
      * @param username El nombre del User al que se le mostrara sus sintesis
      */
     public void systemSynthesis(String username){
-        if(userExistByName(username)){
+        if(userExistByName(username) && usersLogged()){
             for(Chathistory_21065666_VeraRojas chathistory: this.chathistorys){
                 if(chathistory.getUsername().equals(username)){
                     System.out.println(chathistory.getHistory());
                 }
             }
+            System.out.println("Ingrese un usuario valido o inicie sesion primero.");
         }
     }
 
@@ -401,7 +402,7 @@ public class System_21065666_VeraRojas implements SystemInterface_21065666_VeraR
      */
     public void printChatbotsFlowsOptions() {
         for(Chatbot_21065666_VeraRojas chatbot: this.chatbots){
-            System.out.println(chatbot.getId() + ". " + chatbot.getName());
+            System.out.println("Chatbot: " + chatbot.getId() + ". " + chatbot.getName() + "   startFlowID = " + chatbot.getStartFlowID());
             chatbot.printFlows();
         }
     }

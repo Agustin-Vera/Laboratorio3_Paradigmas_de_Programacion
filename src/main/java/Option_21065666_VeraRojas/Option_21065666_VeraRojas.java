@@ -46,6 +46,7 @@ public class Option_21065666_VeraRojas implements OptionInterface_21065666_VeraR
         this.message = message;
         this.chatbotCodeLink = chatbotCodeLink;
         this.initialFlowCodeLink = initialFlowCodeLink;
+        keywords.add(Integer.toString(code));
         this.keywords = keywords;
     }
 
