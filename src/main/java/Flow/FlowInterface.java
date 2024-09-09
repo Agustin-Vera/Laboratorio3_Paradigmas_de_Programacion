@@ -1,6 +1,6 @@
-package Flow_21065666_VeraRojas;
+package Flow;
 
-import Option_21065666_VeraRojas.Option_21065666_VeraRojas;
+import Option.Option;
 
 import java.util.ArrayList;
 
@@ -8,27 +8,27 @@ import java.util.ArrayList;
  * Interface correspondiente a Flow
  * @author Agustin Vera
  */
-public interface FlowInterface_21065666_VeraRojas {
+public interface FlowInterface {
 
     /**
      * Agrega una Option al Flow
      * @param option Option a ser agregada al Flow
      */
-    void flowAddOption(Option_21065666_VeraRojas option);
+    void flowAddOption(Option option);
 
     /**
      * Verifica si una option existe en el flow
      * @param newOption Option a ser agregada
      * @return El booleano que representa si existe o no la Option
      */
-    boolean optionExist(Option_21065666_VeraRojas newOption);
+    boolean optionExist(Option newOption);
 
     /**
      * Obtiene las primeras ocurrencias de cada Option en una lista
      * @param options Las Options del Flow
      * @return Devuelve las primeras ocurrencias de cada Option
      */
-    ArrayList<Option_21065666_VeraRojas> getUniqueOptions(ArrayList<Option_21065666_VeraRojas> options);
+    ArrayList<Option> getUniqueOptions(ArrayList<Option> options);
 
     /**
      * Verifica si existe una Option en el Flow dado un mensaje
@@ -42,7 +42,7 @@ public interface FlowInterface_21065666_VeraRojas {
      * @param message El mensaje ingresado por el usuario
      * @return La Option a la que hace referencia el message
      */
-    Option_21065666_VeraRojas getOptionByMessage(String message);
+    Option getOptionByMessage(String message);
 
     /**
      * Tranforma las Options del Flow a formato String

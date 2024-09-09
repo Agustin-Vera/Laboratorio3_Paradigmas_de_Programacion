@@ -1,8 +1,8 @@
-package System_21065666_VeraRojas;
+package System;
 
-import Chatbot_21065666_VeraRojas.Chatbot_21065666_VeraRojas;
-import Flow_21065666_VeraRojas.Flow_21065666_VeraRojas;
-import User_21065666_VeraRojas.UserInterface_21065666_VeraRojas;
+import Chatbot.Chatbot;
+import Flow.Flow;
+import User.UserInterface;
 
 import java.util.ArrayList;
 
@@ -10,40 +10,40 @@ import java.util.ArrayList;
  * Interface System
  * @author Agustin Vera
  */
-public interface SystemInterface_21065666_VeraRojas {
+public interface SystemInterface {
 
     /**
      * Obtiene las primeras instancias de los Chatbots ingresados
      * @param chatbots Los Chatbots del System
      * @return Devuelve las primeras ocurrencias de los Chatbots
      */
-    ArrayList<Chatbot_21065666_VeraRojas> getUniqueChatbots(ArrayList<Chatbot_21065666_VeraRojas> chatbots);
+    ArrayList<Chatbot> getUniqueChatbots(ArrayList<Chatbot> chatbots);
 
     /**
      * Agrega un Chatbot al System
      * @param chatbot El Chatbot a ser agregado
      */
-    void systemAddChatbot(Chatbot_21065666_VeraRojas chatbot);
+    void systemAddChatbot(Chatbot chatbot);
 
     /**
      * Verifica si un chatbot existe en el System
      * @param newChatbot El Chatbot a ser agregado
      * @return El booleano que representa si existe o no el Chatbot
      */
-    boolean chatbotExist(Chatbot_21065666_VeraRojas newChatbot);
+    boolean chatbotExist(Chatbot newChatbot);
 
     /**
      * Agrega un User al System
      * @param user El User a ser agregado
      */
-    void systemAddUser(UserInterface_21065666_VeraRojas user);
+    void systemAddUser(UserInterface user);
 
     /**
      * Verifica si existe un User en el System
      * @param newUser El User a ser verificado
      * @return El booleano que representa si existe el User
      */
-    boolean userExist(UserInterface_21065666_VeraRojas newUser);
+    boolean userExist(UserInterface newUser);
 
     /**
      * Inicia la sesion de un User
@@ -90,14 +90,14 @@ public interface SystemInterface_21065666_VeraRojas {
      * @param flowDestino El Flow al cual apunta el mensaje del User
      * @return El String que representa la interaccion con un formato
      */
-    String makeInteraction(String username, String message, Chatbot_21065666_VeraRojas chatbotDestino, Flow_21065666_VeraRojas flowDestino);
+    String makeInteraction(String username, String message, Chatbot chatbotDestino, Flow flowDestino);
 
     /**
      * Obtiene un Chatbot dado un identificador
      * @param id El identificador del Chatbot
      * @return Devuelve el Chatbot
      */
-    Chatbot_21065666_VeraRojas getChatbotByID(int id);
+    Chatbot getChatbotByID(int id);
 
     /**
      * Ofrece una sintesis de las interacciones entre un User y el Chatbot
@@ -114,7 +114,7 @@ public interface SystemInterface_21065666_VeraRojas {
      * Obtiene al User con sesion iniciada
      * @return Devuelve el User con sesion iniciada
      */
-    UserInterface_21065666_VeraRojas getUserLogged();
+    UserInterface getUserLogged();
 
     /**
      * Verifica si un Usuario es administrador

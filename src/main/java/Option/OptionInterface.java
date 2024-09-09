@@ -1,4 +1,4 @@
-package Option_21065666_VeraRojas;
+package Option;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Interface Flow
  * @author Agustin Vera
  */
-public interface OptionInterface_21065666_VeraRojas {
+public interface OptionInterface {
 
     /**
      * Obtiene el code o identificador de la Option

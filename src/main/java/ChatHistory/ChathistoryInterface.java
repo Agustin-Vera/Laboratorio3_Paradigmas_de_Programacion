@@ -1,10 +1,10 @@
-package ChatHistory_21065666_VeraRojas;
+package ChatHistory;
 
 /**
  * Interface Chathistory
  * @author Agustin Vera
  */
-public interface ChathistoryInterface_21065666_VeraRojas {
+public interface ChathistoryInterface {
 
     /**
      * Obtiene el nombre del usuario al cual le pertenece el Chathistory

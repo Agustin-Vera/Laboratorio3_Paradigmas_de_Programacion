@@ -1,9 +1,9 @@
-package User_21065666_VeraRojas;
+package User;
 
-import Chatbot_21065666_VeraRojas.Chatbot_21065666_VeraRojas;
-import Flow_21065666_VeraRojas.Flow_21065666_VeraRojas;
-import Option_21065666_VeraRojas.Option_21065666_VeraRojas;
-import System_21065666_VeraRojas.System_21065666_VeraRojas;
+import Chatbot.Chatbot;
+import Flow.Flow;
+import Option.Option;
+import System.System;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Clase AdminUser
  * @author Agustin Vera
  */
-public class AdminUser_21065666_VeraRojas implements UserInterface_21065666_VeraRojas{
+public class AdminUser implements UserInterface {
 
     /**
      * Nombre del AdminUser
@@ -27,7 +27,7 @@ public class AdminUser_21065666_VeraRojas implements UserInterface_21065666_Vera
      * Instancia un AdminUser
      * @param name Nombre del AdminUser
      */
-    public AdminUser_21065666_VeraRojas(String name) {
+    public AdminUser(String name) {
         this.name = name;
         this.adminUser = true;
     }
@@ -53,7 +53,7 @@ public class AdminUser_21065666_VeraRojas implements UserInterface_21065666_Vera
      * @param sys System contenedor de los Chatbots
      * @param message Mensaje del AdminUser
      */
-    public void talkToChatbot(System_21065666_VeraRojas sys, String message) {
+    public void talkToChatbot(System sys, String message) {
         sys.systemTalk(message);
     }
 
@@ -61,7 +61,7 @@ public class AdminUser_21065666_VeraRojas implements UserInterface_21065666_Vera
      * Permite ver todos los Chatbots del System
      * @param sys System contenedor de Chatbots
      */
-    public void verChatbots(System_21065666_VeraRojas sys){
+    public void verChatbots(System sys){
         sys.printChatbots();
     }
 
@@ -69,7 +69,7 @@ public class AdminUser_21065666_VeraRojas implements UserInterface_21065666_Vera
      * Permite ver todos los Chatbots con sus Flows y Options
      * @param sys System contenedor de Chatbots
      */
-    public void verChatbotsFlowsOptions(System_21065666_VeraRojas sys) {
+    public void verChatbotsFlowsOptions(System sys) {
         sys.printChatbotsFlowsOptions();
     }
 
@@ -90,8 +90,8 @@ public class AdminUser_21065666_VeraRojas implements UserInterface_21065666_Vera
      * @param keyword Lista de las palabras clave de la Option
      * @return La Option creada
      */
-    public Option_21065666_VeraRojas makeOption(int code, String message, int chatbotCodeLink, int initialFlowCodeLink, ArrayList<String> keyword){
-        Option_21065666_VeraRojas option = new Option_21065666_VeraRojas(code, message, chatbotCodeLink, initialFlowCodeLink, keyword);
+    public Option makeOption(int code, String message, int chatbotCodeLink, int initialFlowCodeLink, ArrayList<String> keyword){
+        Option option = new Option(code, message, chatbotCodeLink, initialFlowCodeLink, keyword);
         return option;
     }
 
@@ -102,8 +102,8 @@ public class AdminUser_21065666_VeraRojas implements UserInterface_21065666_Vera
      * @param options Options del Flow
      * @return El Flow creado
      */
-    public Flow_21065666_VeraRojas makeFlow(int id, String nameMsg, ArrayList<Option_21065666_VeraRojas> options){
-        Flow_21065666_VeraRojas flow = new Flow_21065666_VeraRojas(id, nameMsg, options);
+    public Flow makeFlow(int id, String nameMsg, ArrayList<Option> options){
+        Flow flow = new Flow(id, nameMsg, options);
         return flow;
     }
 
@@ -116,8 +116,8 @@ public class AdminUser_21065666_VeraRojas implements UserInterface_21065666_Vera
      * @param flows Flows del Chatbot
      * @return EL Chatbot creado
      */
-    public Chatbot_21065666_VeraRojas makeChatbot(int chatbotID, String chatbotName, String chatbotWelcomeMessage, int chatbotStartFlowID, ArrayList<Flow_21065666_VeraRojas> flows){
-        Chatbot_21065666_VeraRojas chatbot = new Chatbot_21065666_VeraRojas(chatbotID, chatbotName, chatbotWelcomeMessage, chatbotStartFlowID, flows);
+    public Chatbot makeChatbot(int chatbotID, String chatbotName, String chatbotWelcomeMessage, int chatbotStartFlowID, ArrayList<Flow> flows){
+        Chatbot chatbot = new Chatbot(chatbotID, chatbotName, chatbotWelcomeMessage, chatbotStartFlowID, flows);
         return chatbot;
     }
 
@@ -127,7 +127,7 @@ public class AdminUser_21065666_VeraRojas implements UserInterface_21065666_Vera
      * @param chatbotID Identificador del Chatbot
      * @param flow Flow a ser agregado
      */
-    public void addFlow(System_21065666_VeraRojas sys, int chatbotID, Flow_21065666_VeraRojas flow) {
+    public void addFlow(System sys, int chatbotID, Flow flow) {
         sys.addFlowToChatbotByChatbotID(chatbotID, flow);
     }
 
@@ -138,7 +138,7 @@ public class AdminUser_21065666_VeraRojas implements UserInterface_21065666_Vera
      * @param flowID Identificador del Flow
      * @param option Option a ser agregada
      */
-    public void addOption(System_21065666_VeraRojas sys, int chatbotID, int flowID, Option_21065666_VeraRojas option) {
+    public void addOption(System sys, int chatbotID, int flowID, Option option) {
         sys.addOptionToFlowByChatbotFlowIDs(chatbotID, flowID, option);
     }
 }

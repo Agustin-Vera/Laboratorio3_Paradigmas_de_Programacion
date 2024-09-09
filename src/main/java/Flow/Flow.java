@@ -1,6 +1,6 @@
-package Flow_21065666_VeraRojas;
+package Flow;
 
-import Option_21065666_VeraRojas.Option_21065666_VeraRojas;
+import Option.Option;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Clase Flow
  * @author Agustin Vera
  */
-public class Flow_21065666_VeraRojas implements FlowInterface_21065666_VeraRojas{
+public class Flow implements FlowInterface {
 
     /**
      * El identificador del Flow
@@ -23,7 +23,7 @@ public class Flow_21065666_VeraRojas implements FlowInterface_21065666_VeraRojas
     /**
      * Las Options del Flow
      */
-    private ArrayList<Option_21065666_VeraRojas> options;
+    private ArrayList<Option> options;
 
     /**
      * Instancia un Flow
@@ -31,7 +31,7 @@ public class Flow_21065666_VeraRojas implements FlowInterface_21065666_VeraRojas
      * @param nameMsg El nombre y mensaje del Flow
      * @param options Las Options del Flow
      */
-    public Flow_21065666_VeraRojas(int id, String nameMsg, ArrayList<Option_21065666_VeraRojas> options) {
+    public Flow(int id, String nameMsg, ArrayList<Option> options) {
         this.id = id;
         this.nameMsg = nameMsg;
         this.options = getUniqueOptions(options);
@@ -58,7 +58,7 @@ public class Flow_21065666_VeraRojas implements FlowInterface_21065666_VeraRojas
      * @param options Las Options del Flow
      * @return Devuelve las primeras ocurrencias de cada Option
      */
-    public ArrayList<Option_21065666_VeraRojas> getUniqueOptions(ArrayList<Option_21065666_VeraRojas> options){
+    public ArrayList<Option> getUniqueOptions(ArrayList<Option> options){
         for(int i = 0; i < options.size(); i++){
             for(int j = i+1; j < options.size(); j++){
                 if(options.get(i).getCode() == options.get(j).getCode()){
@@ -75,8 +75,8 @@ public class Flow_21065666_VeraRojas implements FlowInterface_21065666_VeraRojas
      * @param newOption Option a ser agregada
      * @return El booleano que representa si existe o no la Option
      */
-    public boolean optionExist(Option_21065666_VeraRojas newOption){
-        for(Option_21065666_VeraRojas option: this.options){
+    public boolean optionExist(Option newOption){
+        for(Option option: this.options){
             if(option.getCode() == newOption.getCode()){
                 return true;
             }
@@ -88,7 +88,7 @@ public class Flow_21065666_VeraRojas implements FlowInterface_21065666_VeraRojas
      * Agrega una Option al Flow
      * @param option Option a ser agregada al Flow
      */
-    public void flowAddOption(Option_21065666_VeraRojas option){
+    public void flowAddOption(Option option){
         if(this.optionExist(option)){
             System.out.println("Ya existe una opcion con ese identificador, pruebe con otra.");
         }else {
@@ -102,8 +102,8 @@ public class Flow_21065666_VeraRojas implements FlowInterface_21065666_VeraRojas
      * @param message El mensaje ingresado por el usuario
      * @return La Option a la que hace referencia el message
      */
-    public Option_21065666_VeraRojas getOptionByMessage(String message){
-        for(Option_21065666_VeraRojas option: this.options){
+    public Option getOptionByMessage(String message){
+        for(Option option: this.options){
             ArrayList<String> keywords = option.getKeywords();
             if(keywords.contains(message)){
                 return option;
@@ -118,7 +118,7 @@ public class Flow_21065666_VeraRojas implements FlowInterface_21065666_VeraRojas
      * @return El booleano indicara si existe o no la Option
      */
     public boolean optionExistByMessage(String message){
-        for(Option_21065666_VeraRojas option: this.options){
+        for(Option option: this.options){
             if(option.getKeywords().contains(message)){
                 return true;
             }
@@ -132,7 +132,7 @@ public class Flow_21065666_VeraRojas implements FlowInterface_21065666_VeraRojas
      */
     public String optionsToString(){
         String optionsString = "";
-        for(Option_21065666_VeraRojas option: this.options){
+        for(Option option: this.options){
             optionsString = optionsString + option.getMessage() + "\n";
         }
         return optionsString;
@@ -142,7 +142,7 @@ public class Flow_21065666_VeraRojas implements FlowInterface_21065666_VeraRojas
      * Imprime las Options
      */
     public void printOptions() {
-        for(Option_21065666_VeraRojas option: this.options){
+        for(Option option: this.options){
             System.out.println("        Option: Code = " + option.getCode() + "   Message = " + option.getMessage() + "  chatbotCodeLink = " + option.getChatbotCodeLink() + "   InitialFlowCodeLink = " + option.getInitialFlowCodeLink() + "   Keywords = " + option.getKeywords());
         }
     }

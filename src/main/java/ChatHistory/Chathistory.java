@@ -1,10 +1,10 @@
-package ChatHistory_21065666_VeraRojas;
+package ChatHistory;
 
 /**
  * Clase Chathistory
  * @author Agustin Vera
  */
-public class Chathistory_21065666_VeraRojas implements ChathistoryInterface_21065666_VeraRojas{
+public class Chathistory implements ChathistoryInterface{
 
     /**
      * Nombre del usuario al cual le pertenece el Chathistory
@@ -20,7 +20,7 @@ public class Chathistory_21065666_VeraRojas implements ChathistoryInterface_2106
      * Instancia un Chathistory
      * @param username Nombre del usuario al que le pertenece el Chathistory
      */
-    public Chathistory_21065666_VeraRojas(String username) {
+    public Chathistory(String username) {
         this.username = username;
         this.history = "";
     }

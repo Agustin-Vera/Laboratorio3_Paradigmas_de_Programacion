@@ -1,9 +1,9 @@
-package User_21065666_VeraRojas;
+package User;
 
-import Chatbot_21065666_VeraRojas.Chatbot_21065666_VeraRojas;
-import Flow_21065666_VeraRojas.Flow_21065666_VeraRojas;
-import Option_21065666_VeraRojas.Option_21065666_VeraRojas;
-import System_21065666_VeraRojas.System_21065666_VeraRojas;
+import Chatbot.Chatbot;
+import Flow.Flow;
+import Option.Option;
+import System.System;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Clase NormalUser
  * @author Agustin Vera
  */
-public class NormalUser_21065666_VeraRojas implements UserInterface_21065666_VeraRojas {
+public class NormalUser implements UserInterface {
 
     /**
      * Nombre del NormalUser
@@ -27,7 +27,7 @@ public class NormalUser_21065666_VeraRojas implements UserInterface_21065666_Ver
      * Instacia un NormalUser
      * @param name Nombre del NormalUser
      */
-    public NormalUser_21065666_VeraRojas(String name) {
+    public NormalUser(String name) {
         this.name = name;
         this.adminUser = false;
     }
@@ -53,7 +53,7 @@ public class NormalUser_21065666_VeraRojas implements UserInterface_21065666_Ver
      * @param sys System contenedor de los Chatbots
      * @param message Mensaje del NormalUser
      */
-    public void talkToChatbot(System_21065666_VeraRojas sys, String message) {
+    public void talkToChatbot(System sys, String message) {
         sys.systemTalk(message);
     }
 
@@ -61,7 +61,7 @@ public class NormalUser_21065666_VeraRojas implements UserInterface_21065666_Ver
      * Imprime los Chatbots del System
      * @param sys System contenedor de Chatbots
      */
-    public void verChatbots(System_21065666_VeraRojas sys){
+    public void verChatbots(System sys){
         sys.printChatbots();
     }
 
@@ -69,7 +69,7 @@ public class NormalUser_21065666_VeraRojas implements UserInterface_21065666_Ver
      * Imprime los Chatbots con sus Flows y Options
      * @param sys System contenedor de Chatbots
      */
-    public void verChatbotsFlowsOptions(System_21065666_VeraRojas sys) {
+    public void verChatbotsFlowsOptions(System sys) {
         sys.printChatbotsFlowsOptions();
     }
 
@@ -82,8 +82,8 @@ public class NormalUser_21065666_VeraRojas implements UserInterface_21065666_Ver
      * @param keyword Lista de palabras clave de la Option
      * @return Null debido a que no tiene permitido crear una Option
      */
-    public Option_21065666_VeraRojas makeOption(int code, String message, int chatbotCodeLink, int initialFlowCodeLink, ArrayList<String> keyword){
-        System.out.println("Usted no es usuario administrador.");
+    public Option makeOption(int code, String message, int chatbotCodeLink, int initialFlowCodeLink, ArrayList<String> keyword){
+        java.lang.System.out.println("Usted no es usuario administrador.");
         return null;
     }
 
@@ -94,8 +94,8 @@ public class NormalUser_21065666_VeraRojas implements UserInterface_21065666_Ver
      * @param options Options del Flow
      * @return Null debido a que no tiene permitido crear un Flow
      */
-    public Flow_21065666_VeraRojas makeFlow(int id, String nameMsg, ArrayList<Option_21065666_VeraRojas> options){
-        System.out.println("Usted no es usuario administrador.");
+    public Flow makeFlow(int id, String nameMsg, ArrayList<Option> options){
+        java.lang.System.out.println("Usted no es usuario administrador.");
         return null;
     }
 
@@ -108,8 +108,8 @@ public class NormalUser_21065666_VeraRojas implements UserInterface_21065666_Ver
      * @param flows Flows del Chatbot
      * @return Null debido a que no tiene permitido crear un Chatbot
      */
-    public Chatbot_21065666_VeraRojas makeChatbot(int chatbotID, String chatbotName, String chatbotWelcomeMessage, int chatbotStartFlowID, ArrayList<Flow_21065666_VeraRojas> flows){
-        System.out.println("Usted no es usuario administrador.");
+    public Chatbot makeChatbot(int chatbotID, String chatbotName, String chatbotWelcomeMessage, int chatbotStartFlowID, ArrayList<Flow> flows){
+        java.lang.System.out.println("Usted no es usuario administrador.");
         return null;
     }
 
@@ -119,8 +119,8 @@ public class NormalUser_21065666_VeraRojas implements UserInterface_21065666_Ver
      * @param chatbotID Identificador del Chatbot al cual se le agrega el Flow
      * @param flow Flow a ser agregado
      */
-    public void addFlow(System_21065666_VeraRojas sys, int chatbotID, Flow_21065666_VeraRojas flow) {
-        System.out.println("Usted no es usuario administrador.");
+    public void addFlow(System sys, int chatbotID, Flow flow) {
+        java.lang.System.out.println("Usted no es usuario administrador.");
     }
 
     /**
@@ -130,8 +130,8 @@ public class NormalUser_21065666_VeraRojas implements UserInterface_21065666_Ver
      * @param flowID Identificador del Flow
      * @param option Option a ser agregada
      */
-    public void addOption(System_21065666_VeraRojas sys, int chatbotID, int flowID, Option_21065666_VeraRojas option) {
-        System.out.println("Usted no es usuario administrador.");
+    public void addOption(System sys, int chatbotID, int flowID, Option option) {
+        java.lang.System.out.println("Usted no es usuario administrador.");
     }
 
     @Override

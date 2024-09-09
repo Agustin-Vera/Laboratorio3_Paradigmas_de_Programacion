@@ -1,4 +1,4 @@
-package Option_21065666_VeraRojas;
+package Option;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Clase Option
  * @author Agustin Vera
  */
-public class Option_21065666_VeraRojas implements OptionInterface_21065666_VeraRojas{
+public class Option implements OptionInterface {
 
     /**
      * El identificador de la Option
@@ -41,7 +41,7 @@ public class Option_21065666_VeraRojas implements OptionInterface_21065666_VeraR
      * @param initialFlowCodeLink el id del Flow al que dirige la Option
      * @param keywords las keywords de la Option
      */
-    public Option_21065666_VeraRojas(int code, String message, int chatbotCodeLink, int initialFlowCodeLink, ArrayList<String> keywords) {
+    public Option(int code, String message, int chatbotCodeLink, int initialFlowCodeLink, ArrayList<String> keywords) {
         this.code = code;
         this.message = message;
         this.chatbotCodeLink = chatbotCodeLink;
